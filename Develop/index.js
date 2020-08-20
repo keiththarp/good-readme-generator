@@ -11,6 +11,16 @@ const questions = [
   },
   {
     type: "input",
+    name: "deployedURL",
+    message: "Provide the URL for your deployed app."
+  },
+  {
+    type: "input",
+    name: "screenShot",
+    message: "Provide the URL for a screenshot of you app."
+  },
+  {
+    type: "input",
     name: "description",
     message: "Please provide a description of your app?"
   },
@@ -36,35 +46,61 @@ const questions = [
     ],
     default: 'MIT'
   },
-
-  //   * Contributing
-  //   * Tests
-  //   * Questions
-
+  {
+    type: "input",
+    name: "contribute",
+    message: "How can people contribute to the app?",
+  },
+  {
+    type: "input",
+    name: "testing",
+    message: "How is testing performed?",
+    default: "npm test"
+  },
+  {
+    type: "input",
+    name: "name",
+    message: "Please enter your full name.",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "please enter your email address.",
+  },
+  {
+    type: "input",
+    name: "github",
+    message: "What is your GutHub username?"
+  },
+  {
+    type: "input",
+    name: "credits",
+    message: "Please provide any acknowledgements or credits."
+  }
 ];
 inquirer.prompt(questions).then(function (data) {
 
   console.log(data);
 
-  // fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
+  fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
 
-  //   if (err) {
-  //     return console.log(err);
-  //   }
+    if (err) {
+      return console.log(err);
+    }
 
-  //   console.log("Success!");
+    console.log("Success!");
 
-  // });
+  });
 });
 
 // function to write README file
-// function writeToFile(fileName, data) {
-// }
+function writeToFile(fileName, data) {
+}
 
-// function to initialize program
-// function init() {
+function to initialize program
+function init() {
 
-// }
+}
 
 // function call to initialize program
-// init();
+init();
