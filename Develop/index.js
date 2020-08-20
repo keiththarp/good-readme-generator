@@ -1,4 +1,6 @@
+
 const inquirer = require("inquirer");
+const markDown = require("generateMarkdown");
 var fs = require('fs');
 
 
@@ -42,7 +44,7 @@ const questions = [
     choices: [
       'MIT',
       'Apache',
-      'GPL'
+      'GPL v3'
     ],
     default: 'MIT'
   },
@@ -81,6 +83,8 @@ const questions = [
 inquirer.prompt(questions).then(function (data) {
 
   console.log(data);
+  markDown(data);
+  console.log(generateMarkdown(data));
 
   fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
 
@@ -97,7 +101,7 @@ inquirer.prompt(questions).then(function (data) {
 function writeToFile(fileName, data) {
 }
 
-function to initialize program
+// function to initialize program
 function init() {
 
 }
