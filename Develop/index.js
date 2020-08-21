@@ -1,8 +1,7 @@
 
 const inquirer = require("inquirer");
-const markDown = require("generateMarkdown");
-var fs = require('fs');
-
+const generateMarkdown = require("./utils/generateMarkdown");
+const fs = require('fs');
 
 // array of questions for user
 const questions = [
@@ -80,31 +79,23 @@ const questions = [
     message: "Please provide any acknowledgements or credits."
   }
 ];
+
 inquirer.prompt(questions).then(function (data) {
+  writeToFile("README-1.md", generateMarkdown(data));
 
-  console.log(data);
-  markDown(data);
-  console.log(generateMarkdown(data));
+  generateMarkdown(data);
+  console.log(`Thanks ${data.name}, your file is being created.`);
 
-  fs.writeFile(filename, JSON.stringify(data, null, '\t'), function (err) {
-
-    if (err) {
-      return console.log(err);
-    }
-
-    console.log("Success!");
-
-  });
+}, function (err) {
+  console.log(err);
 });
 
 // function to write README file
 function writeToFile(fileName, data) {
+
+  fs.writeFile(fileName, data, function (err) {
+    if (err) return console.log(err);
+    console.log(`Your file has been created successfully!`);
+  });
+
 }
-
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
