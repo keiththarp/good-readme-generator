@@ -30,6 +30,10 @@ function generateMarkdown(data) {
   });
 
   const title = data.title;
+  const titleDash = title.replace(/\s/g, "-");
+  const lic = data.license;
+  const licDash = lic.replace(/\s/g, "-");
+
   return `
   ${badge}
   # ${title}
@@ -42,12 +46,12 @@ function generateMarkdown(data) {
 
 ## Table of Contents
 - [Installation](#Installation-instructions)
-- [Usage](#How-to-use-${title})
-- [Contribute](#How-to-contribute-to-${title})
+- [Usage](#How-to-use-${titleDash})
+- [Contribute](#How-to-contribute-to-${titleDash})
 - [Testing](#For-testing)
-- [Questions](#${title}-was-developed-by:)
+- [Questions](#${titleDash}-was-developed-by:)
 - [Credits](#Acknowledgments-and-Credits)
-- [License](#${title}-is-licensed-under-${data.license})
+- [License](#${titleDash}-is-licensed-under-${licDash})
 
 ## Installation instructions
 ${data.installation}
