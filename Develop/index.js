@@ -81,7 +81,7 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then(function (data) {
-  writeToFile("README-1.md", generateMarkdown(data));
+  writeToFile("README.md", generateMarkdown(data));
 
   generateMarkdown(data);
   console.log(`Thanks ${data.name}, your file is being created.`);
