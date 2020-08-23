@@ -4,7 +4,7 @@
 
   README Rodeo is a simple CLI that provides prompts for a user to quickly answer questions about their app to easily create a README.md file to accompany the app's repository.
 
-**View deployed app at -** https://github.com/keiththarp/readme-rodeo
+**View video of functioning app at -** https://youtu.be/suQlBWO06yQ
 
 ![README Rodeo screen shot](./assets/rodeo-screenshot.png)
 
